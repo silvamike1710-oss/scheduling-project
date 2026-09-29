@@ -3,9 +3,17 @@ const dateEl = document.getElementById('data');
 const timeEl = document.getElementById('horario');
 const msg = document.getElementById('msg');
 
-dateEl.min = new Date(
-    Date.now() - new Date().getTimezoneOffset() * 60000
-).toISOString().slice(0, 10);
+function setMinimumBookingDate() {
+    const localToday = new Date(Date.now() - new Date().getTimezoneOffset() * 60000);
+    dateEl.min = localToday.toISOString().slice(0, 10);
+}
+
+function resetTimeOptions(message = 'Selecione uma data primeiro') {
+    timeEl.disabled = true;
+    timeEl.innerHTML = `<option value="">${message}</option>`;
+}
+
+setMinimumBookingDate();
 
 function show(text, type = '') {
     msg.textContent = text;
@@ -13,14 +21,12 @@ function show(text, type = '') {
 }
 
 dateEl.addEventListener('change', async () => {
-    timeEl.disabled = true;
-
     if (!dateEl.value) {
-        timeEl.innerHTML =
-            '<option value="">Selecione uma data primeiro</option>';
+        resetTimeOptions();
         return;
     }
 
+    timeEl.disabled = true;
     timeEl.innerHTML = '<option value="">Carregando...</option>';
 
     try {
@@ -35,8 +41,7 @@ dateEl.addEventListener('change', async () => {
         const { slots } = await response.json();
 
         if (!slots.length) {
-            timeEl.innerHTML =
-                '<option value="">Sem horários disponíveis, tente outro dia</option>';
+            resetTimeOptions('Sem horários disponíveis, tente outro dia');
             return;
         }
 
@@ -72,12 +77,8 @@ form.addEventListener('submit', async event => {
         if (response.ok && result.ok) {
             show('Agendamento realizado com sucesso!', 'ok');
             form.reset();
-            dateEl.min = new Date(
-                Date.now() - new Date().getTimezoneOffset() * 60000
-            ).toISOString().slice(0, 10);
-            timeEl.disabled = true;
-            timeEl.innerHTML =
-                '<option value="">Selecione uma data primeiro</option>';
+            setMinimumBookingDate();
+            resetTimeOptions();
             return;
         }
 
@@ -92,3 +93,4 @@ form.addEventListener('submit', async event => {
         button.disabled = false;
     }
 });
+``

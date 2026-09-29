@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4fbfa">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administração | Clínica Dentária</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <script src="/public/js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+    <header class="site-header admin-header">
+        <a class="brand" href="/" aria-label="Clínica Dentária - início">
+            <span class="brand-mark" aria-hidden="true">+</span>
+            <span>Clínica <strong>Dentária</strong></span>
+        </a>
+        <a class="admin-back-link" href="/">Voltar ao site <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="admin-main">
+        <section class="admin-login-card" id="login-panel" hidden>
+            <p class="eyebrow">Acesso restrito</p>
+            <h1>Área administrativa</h1>
+            <p class="admin-intro">Entre para visualizar a agenda de consultas da clínica.</p>
+            <form id="login-form">
+                <label for="username">Usuário
+                    <input id="username" name="username" autocomplete="username" required>
+                </label>
+                <label for="password">Senha
+                    <input id="password" name="password" type="password" autocomplete="current-password" required>
+                </label>
+                <button class="button" type="submit">Entrar <span aria-hidden="true">→</span></button>
+                <p class="form-message" id="login-message" role="alert" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="admin-dashboard" id="dashboard" hidden>
+            <div class="admin-title-row">
+                <div>
+                    <p class="eyebrow">Painel da clínica</p>
+                    <h1>Agenda de consultas</h1>
+                    <p class="admin-intro">Acompanhe os agendamentos da semana em um só lugar.</p>
+                </div>
+                <button class="button button-outline" id="logout-button" type="button">Sair</button>
+            </div>
+
+            <section class="schedule-panel" aria-label="Agenda semanal">
+                <div class="schedule-toolbar">
+                    <div>
+                        <h2 id="week-label">Esta semana</h2>
+                        <p id="week-summary" class="schedule-summary" aria-live="polite"></p>
+                    </div>
+                    <div class="week-controls" aria-label="Navegação entre semanas">
+                        <button class="icon-button" id="previous-week" type="button" aria-label="Semana anterior">←</button>
+                        <button class="today-button" id="current-week" type="button">Esta semana</button>
+                        <button class="icon-button" id="next-week" type="button" aria-label="Próxima semana">→</button>
+                    </div>
+                </div>
+
+                <div class="week-days" id="week-days" role="group" aria-label="Dias da semana"></div>
+                <div class="agenda-heading">
+                    <h3 id="selected-day-label"></h3>
+                    <span id="day-count" class="day-count"></span>
+                </div>
+                <div class="appointment-list" id="appointment-list" aria-live="polite"></div>
+                <p class="form-message admin-error" id="schedule-message" role="alert"></p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

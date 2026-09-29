@@ -485,6 +485,331 @@ select:disabled {
     font-size: .85rem;
 }
 
+.site-footer > a:last-child {
+    color: var(--brand);
+    font-size: .88rem;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.site-footer > a:last-child:hover {
+    text-decoration: underline;
+}
+
+.admin-body {
+    min-height: 100vh;
+    background: var(--paper);
+}
+
+.admin-body [hidden] {
+    display: none !important;
+}
+
+.admin-header {
+    position: static;
+}
+
+.admin-back-link {
+    color: var(--muted);
+    font-size: .9rem;
+    text-decoration: none;
+}
+
+.admin-back-link:hover {
+    color: var(--brand);
+}
+
+.admin-main {
+    width: min(1120px, 100%);
+    min-height: calc(100vh - 76px);
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4.5rem) 1.5rem;
+}
+
+.admin-login-card {
+    width: min(100%, 440px);
+    margin: 4rem auto;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 18px 55px rgb(24 59 59 / 7%);
+}
+
+.admin-login-card h1,
+.admin-title-row h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 650;
+    letter-spacing: -.045em;
+    line-height: 1.12;
+}
+
+.admin-intro {
+    margin: .7rem 0 1.8rem;
+    color: var(--muted);
+}
+
+.admin-login-card form {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-login-card label {
+    display: grid;
+    gap: .4rem;
+    font-size: .9rem;
+    font-weight: 650;
+}
+
+.admin-login-card .button {
+    width: 100%;
+    margin-top: .35rem;
+}
+
+.admin-dashboard {
+    display: grid;
+    gap: 2rem;
+}
+
+.admin-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.admin-title-row .admin-intro {
+    margin-bottom: 0;
+}
+
+.button-outline {
+    min-height: 42px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--white);
+}
+
+.button-outline:hover {
+    color: var(--white);
+}
+
+.schedule-panel {
+    padding: clamp(1rem, 4vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 15px 45px rgb(24 59 59 / 5%);
+}
+
+.schedule-toolbar,
+.week-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.schedule-toolbar h2,
+.agenda-heading h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.schedule-summary {
+    margin: .2rem 0 0;
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.week-controls {
+    gap: .45rem;
+}
+
+.icon-button,
+.today-button,
+.week-day {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--white);
+    cursor: pointer;
+    font: inherit;
+}
+
+.icon-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    font-size: 1.2rem;
+}
+
+.today-button {
+    min-height: 38px;
+    padding: .4rem .75rem;
+    border-radius: 9px;
+    font-size: .83rem;
+    font-weight: 600;
+}
+
+.icon-button:hover,
+.today-button:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+}
+
+.week-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: .6rem;
+    margin: 1.5rem 0 1.8rem;
+}
+
+.week-day {
+    display: grid;
+    min-height: 108px;
+    align-content: center;
+    justify-items: center;
+    gap: .15rem;
+    padding: .6rem .2rem;
+    border-radius: 12px;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.week-day:hover,
+.week-day[aria-pressed="true"] {
+    border-color: var(--brand);
+    background: var(--mint);
+}
+
+.week-day.is-today .week-day-number {
+    color: var(--brand);
+}
+
+.week-day-name {
+    color: var(--muted);
+    font-size: .76rem;
+    text-transform: capitalize;
+}
+
+.week-day-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.week-day-count {
+    color: var(--muted);
+    font-size: .68rem;
+    white-space: nowrap;
+}
+
+.agenda-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+}
+
+.agenda-heading h3 {
+    text-transform: capitalize;
+}
+
+.day-count {
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.appointment-list {
+    display: grid;
+    gap: .75rem;
+    margin-top: 1rem;
+}
+
+.appointment-card {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fcfefd;
+}
+
+.appointment-time {
+    padding-top: .15rem;
+    color: var(--brand);
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.appointment-details h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.appointment-procedure,
+.appointment-notes {
+    margin: .2rem 0 0;
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.appointment-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1rem;
+    margin-top: .55rem;
+}
+
+.appointment-contacts a {
+    color: var(--brand-dark);
+    font-size: .83rem;
+    text-decoration: none;
+}
+
+.appointment-contacts a:hover {
+    text-decoration: underline;
+}
+
+.appointment-notes {
+    margin-top: .65rem;
+    padding-top: .55rem;
+    border-top: 1px solid var(--line);
+    white-space: pre-wrap;
+}
+
+.empty-agenda {
+    display: grid;
+    min-height: 150px;
+    align-content: center;
+    justify-items: center;
+    gap: .25rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+.empty-agenda-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    margin-bottom: .3rem;
+    border-radius: 50%;
+    color: var(--brand);
+    background: var(--mint);
+    font-weight: 700;
+}
+
+.empty-agenda strong {
+    color: var(--ink);
+}
+
+.admin-error {
+    margin-bottom: 0;
+}
+
 @media (max-width: 760px) {
     .site-header {
         min-height: 68px;
@@ -596,6 +921,70 @@ select:disabled {
         align-items: flex-start;
         justify-content: center;
         padding: 1.5rem 1.25rem;
+    }
+
+    .admin-main {
+        min-height: calc(100vh - 68px);
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .week-days {
+        gap: .3rem;
+    }
+
+    .week-day {
+        min-height: 96px;
+    }
+
+    .week-day-count {
+        font-size: .58rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .admin-header {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .admin-back-link {
+        font-size: .82rem;
+    }
+
+    .admin-main {
+        padding-top: 2rem;
+    }
+
+    .admin-title-row {
+        align-items: center;
+    }
+
+    .admin-title-row h1 {
+        font-size: 2rem;
+    }
+
+    .schedule-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .week-controls {
+        align-self: stretch;
+        justify-content: flex-end;
+    }
+
+    .week-days {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .week-day {
+        min-height: 86px;
+    }
+
+    .appointment-card {
+        grid-template-columns: 1fr;
+        gap: .35rem;
     }
 }
 
