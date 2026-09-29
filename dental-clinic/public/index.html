@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agende sua consulta | Clínica Dentária</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="nav">
+        <strong>Clínica Dentária</strong>
+        <nav>
+            <a class="btn" href="/">Voltar à página inicial</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Agende sua consulta</h1>
+            <p>Escolha o procedimento, a data e o horário que funcionam melhor para você.</p>
+        </section>
+
+        <section class="wrap">
+            <h2>Agendamento</h2>
+            <form id="booking-form" novalidate>
+                <label>Nome completo<input name="nome" required maxlength="100"></label>
+                <label>Email<input type="email" name="email" required></label>
+                <label>Telefone<input type="tel" name="telefone" required></label>
+                <label>Procedimento
+                    <select name="procedimento" required>
+                        <option value="">Selecione um procedimento</option>
+                        <option value="Limpeza">Limpeza Dental</option>
+                        <option value="Clareamento">Clareamento</option>
+                        <option value="Ortodontia">Ortodontia</option>
+                    </select>
+                </label>
+                <label>Data da consulta<input id="data" type="date" name="data" required></label>
+                <label>Horário
+                    <select name="horario" id="horario" required disabled>
+                        <option value="">Selecione uma data primeiro</option>
+                    </select>
+                </label>
+                <label>Observações (opcional)<textarea name="observacoes" maxlength="500"></textarea></label>
+                <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <button class="btn" type="submit">Agendar</button>
+                <p id="msg" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>© 2026 Clínica Dentária. Todos os direitos reservados.</footer>
+    <script src="app.js"></script>
+</body>
+</html>
