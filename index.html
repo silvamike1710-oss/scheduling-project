@@ -3,52 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Dentária</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#f4fbfa">
+    <meta name="description" content="Cuide do seu sorriso com atendimento odontológico personalizado. Conheça nossos serviços e agende sua consulta.">
+    <title>Clínica Dentária | Cuidado para o seu sorriso</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" defer></script>
 </head>
 <body>
-    <header class="nav">
-        <strong>Clínica Dentária</strong>
-        <nav>
+    <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="Clínica Dentária - início">
+            <span class="brand-mark" aria-hidden="true">+</span>
+            <span>Clínica <strong>Dentária</strong></span>
+        </a>
+        <nav class="site-nav" aria-label="Navegação principal">
             <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a class="btn" href="index.html">Agendar consulta</a>
+            <a href="#sobre">Sobre nós</a>
+            <a class="button button-small" href="#agendar">Agendar consulta</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Bem-vindo à Clínica Dentária</h1>
-            <p>Seu sorriso é nossa prioridade!</p>
-            <a href="index.html" class="btn">Agende sua consulta</a>
-        </section>
-
-        <section id="servicos" class="wrap">
-            <h2>Nossos Serviços</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Limpeza Dental</h3>
-                    <p>Cuide da saúde do seu sorriso com uma limpeza profissional.</p>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p class="eyebrow">Seu sorriso em boas mãos</p>
+                <h1>Cuidado gentil para um sorriso saudável.</h1>
+                <p class="hero-copy">Odontologia de qualidade, com atendimento próximo e personalizado para você e sua família.</p>
+                <a class="button" href="#agendar">Agende sua consulta <span aria-hidden="true">→</span></a>
+                <div class="hero-note">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Atendimento de segunda a sábado</span>
                 </div>
-                <div class="card">
-                    <h3>Clareamento</h3>
-                    <p>Realce seu sorriso com nossos tratamentos de clareamento.</p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="art-circle">
+                    <span class="tooth">✦</span>
+                    <span class="art-sparkle sparkle-one">✧</span>
+                    <span class="art-sparkle sparkle-two">✧</span>
                 </div>
-                <div class="card">
-                    <h3>Ortodontia</h3>
-                    <p>Alinhe seus dentes com o acompanhamento de especialistas.</p>
+                <div class="art-card">
+                    <span class="art-card-icon">♡</span>
+                    <span><strong>Seu bem-estar</strong><br>é a nossa prioridade</span>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="wrap">
-            <h2>Sobre Nós</h2>
-            <p>Oferecemos cuidados odontológicos de qualidade, com atendimento personalizado e uma equipe dedicada a cuidar de cada sorriso.</p>
-            <p><b>Horário de funcionamento:</b> Segunda a sábado, das 9h às 18h.</p>
-            <a href="index.html" class="btn">Agende sua consulta</a>
+        <section class="section services-section" id="servicos">
+            <div class="section-heading">
+                <p class="eyebrow">Como podemos ajudar</p>
+                <h2>Cuidados para cada sorriso</h2>
+                <p>Do cuidado preventivo aos tratamentos especializados, conte com a nossa equipe.</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card">
+                    <span class="service-icon" aria-hidden="true">✧</span>
+                    <h3>Limpeza dental</h3>
+                    <p>Prevenção e cuidado profissional para manter seu sorriso saudável.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon" aria-hidden="true">☼</span>
+                    <h3>Clareamento</h3>
+                    <p>Realce seu sorriso com orientação e acompanhamento especializado.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon" aria-hidden="true">⌁</span>
+                    <h3>Ortodontia</h3>
+                    <p>Mais conforto e confiança com um plano de cuidado para o seu sorriso.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section" id="sobre">
+            <div class="about-mark" aria-hidden="true">+</div>
+            <div class="about-copy">
+                <p class="eyebrow">Sobre a clínica</p>
+                <h2>Atendimento que coloca você em primeiro lugar.</h2>
+                <p>Oferecemos cuidados odontológicos de qualidade em um ambiente acolhedor. Nossa equipe está aqui para ouvir você e cuidar de cada sorriso com atenção.</p>
+                <p class="hours"><strong>Horário de funcionamento</strong><br>Segunda a sábado, das 9h às 18h.</p>
+            </div>
+        </section>
+
+        <section class="section booking-section" id="agendar">
+            <div class="section-heading">
+                <p class="eyebrow">Vamos cuidar do seu sorriso</p>
+                <h2>Agende sua consulta</h2>
+                <p>Preencha seus dados e escolha um horário disponível. Entraremos em contato para confirmar.</p>
+            </div>
+            <form id="booking-form">
+                <div class="form-grid">
+                    <label for="nome">Nome completo
+                        <input id="nome" name="nome" autocomplete="name" required maxlength="100" minlength="2">
+                    </label>
+                    <label for="email">E-mail
+                        <input id="email" type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label for="telefone">Telefone
+                        <input id="telefone" type="tel" name="telefone" autocomplete="tel" inputmode="tel" pattern="\+?[0-9]{10,15}" title="Informe de 10 a 15 números, com código do país opcional." required>
+                    </label>
+                    <label for="procedimento">Procedimento
+                        <select id="procedimento" name="procedimento" required>
+                            <option value="">Selecione um procedimento</option>
+                            <option value="Limpeza">Limpeza dental</option>
+                            <option value="Clareamento">Clareamento</option>
+                            <option value="Restauração">Restauração</option>
+                            <option value="Extração">Extração</option>
+                            <option value="Ortodontia">Ortodontia</option>
+                            <option value="Implante">Implante</option>
+                            <option value="Prótese">Prótese</option>
+                            <option value="Endodontia">Endodontia</option>
+                        </select>
+                    </label>
+                    <label for="data">Data da consulta
+                        <input id="data" type="date" name="data" required>
+                    </label>
+                    <label for="horario">Horário
+                        <select id="horario" name="horario" required disabled>
+                            <option value="">Selecione uma data primeiro</option>
+                        </select>
+                    </label>
+                    <label class="form-full" for="observacoes">Observações <span>(opcional)</span>
+                        <textarea id="observacoes" name="observacoes" rows="4" maxlength="500"></textarea>
+                    </label>
+                    <label class="honeypot" aria-hidden="true">Website
+                        <input name="website" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
+                <button class="button" type="submit">Solicitar agendamento <span aria-hidden="true">→</span></button>
+                <p id="msg" class="form-message" role="status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
-    <footer>© 2026 Clínica Dentária. Todos os direitos reservados.</footer>
+    <footer class="site-footer">
+        <a class="brand" href="#inicio">
+            <span class="brand-mark" aria-hidden="true">+</span>
+            <span>Clínica <strong>Dentária</strong></span>
+        </a>
+        <p>© 2026 Clínica Dentária. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

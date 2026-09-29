@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-app.use(express.static('public')); //makes it use the public folder for static files like index.html
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 40 // limit each IP to 40 requests per windowMs

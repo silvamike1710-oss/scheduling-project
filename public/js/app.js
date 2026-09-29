@@ -1,23 +1,19 @@
-
 const form = document.getElementById('booking-form');
 const dateEl = document.getElementById('data');
 const timeEl = document.getElementById('horario');
 const msg = document.getElementById('msg');
 
-// Block past dates
 dateEl.min = new Date(
     Date.now() - new Date().getTimezoneOffset() * 60000
 ).toISOString().slice(0, 10);
 
-function show(text, type) {
+function show(text, type = '') {
     msg.textContent = text;
-    msg.className = type;
+    msg.className = `form-message ${type}`.trim();
 }
 
-// Load available appointment times when the date changes
 dateEl.addEventListener('change', async () => {
     timeEl.disabled = true;
-    timeEl.innerHTML = '<option value="">Carregando...</option>';
 
     if (!dateEl.value) {
         timeEl.innerHTML =
@@ -25,16 +21,18 @@ dateEl.addEventListener('change', async () => {
         return;
     }
 
+    timeEl.innerHTML = '<option value="">Carregando...</option>';
+
     try {
-        const res = await fetch(
+        const response = await fetch(
             `/api/procedimentos?date=${encodeURIComponent(dateEl.value)}`
         );
 
-        if (!res.ok) {
-            throw new Error(`HTTP error: ${res.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
         }
 
-        const { slots } = await res.json();
+        const { slots } = await response.json();
 
         if (!slots.length) {
             timeEl.innerHTML =
@@ -44,59 +42,53 @@ dateEl.addEventListener('change', async () => {
 
         timeEl.innerHTML =
             '<option value="">Selecione um horário</option>' +
-            slots.map(t => `<option value="${t}">${t}</option>`).join('');
-
+            slots.map(slot => `<option value="${slot}">${slot}</option>`).join('');
         timeEl.disabled = false;
-
     } catch (error) {
         console.error('Erro ao carregar horários:', error);
         timeEl.innerHTML =
             '<option value="">Erro ao carregar horários</option>';
+        show('Não foi possível carregar os horários. Tente novamente.', 'err');
     }
 });
 
-// Submit appointment
-form.addEventListener('submit', async e => {
-    e.preventDefault();
+form.addEventListener('submit', async event => {
+    event.preventDefault();
 
-    const btn = form.querySelector('button');
-    btn.disabled = true;
-    show('Enviando...', '');
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    show('Enviando...');
 
     const data = Object.fromEntries(new FormData(form));
 
     try {
-        const res = await fetch('/api/agendamento', {
+        const response = await fetch('/api/agendamento', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
+        const result = await response.json();
 
-        const result = await res.json();
-
-        if (res.ok && result.ok) {
+        if (response.ok && result.ok) {
             show('Agendamento realizado com sucesso!', 'ok');
             form.reset();
-
+            dateEl.min = new Date(
+                Date.now() - new Date().getTimezoneOffset() * 60000
+            ).toISOString().slice(0, 10);
             timeEl.disabled = true;
             timeEl.innerHTML =
                 '<option value="">Selecione uma data primeiro</option>';
-        } else {
-            show(
-                result.problems?.join(', ') ||
-                'Erro ao enviar agendamento',
-                'err'
-            );
-
-            if (res.status === 409) {
-                dateEl.dispatchEvent(new Event('change'));
-            }
+            return;
         }
 
+        show(
+            result.problems?.join(', ') || 'Erro ao enviar agendamento',
+            'err'
+        );
     } catch (error) {
         console.error('Erro ao enviar agendamento:', error);
-        show('Erro ao enviar agendamento', 'err');
+        show('Não foi possível enviar o agendamento. Tente novamente.', 'err');
     } finally {
-        btn.disabled = false;
+        button.disabled = false;
     }
 });
