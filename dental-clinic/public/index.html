@@ -1,55 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agende sua consulta | Clínica Dentária</title>
+    <title>Clinica Dentaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="nav">
-        <strong>Clínica Dentária</strong>
+        <strong>Clinica Dentasria</strong>
         <nav>
-            <a class="btn" href="/">Voltar à página inicial</a>
+         <a href="#serviços">Serviços</a>
+         <a href="#sobre">Sobre</a>
+         <a href="#agendar">Agendar</a>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Agende sua consulta</h1>
-            <p>Escolha o procedimento, a data e o horário que funcionam melhor para você.</p>
-        </section>
+    <section class="hero">
+        <h1>Bem-vindo à Clinica Dentaria</h1>
+        <p>Seu sorriso é nossa prioridade!</p>
+        <a href="#agendar" class="btn">Agende sua consulta</a>
+    </section>
 
-        <section class="wrap">
-            <h2>Agendamento</h2>
-            <form id="booking-form" novalidate>
-                <label>Nome completo<input name="nome" required maxlength="100"></label>
-                <label>Email<input type="email" name="email" required></label>
-                <label>Telefone<input type="tel" name="telefone" required></label>
-                <label>Procedimento
-                    <select name="procedimento" required>
-                        <option value="">Selecione um procedimento</option>
-                        <option value="Limpeza">Limpeza Dental</option>
-                        <option value="Clareamento">Clareamento</option>
-                        <option value="Ortodontia">Ortodontia</option>
-                    </select>
-                </label>
-                <label>Data da consulta<input id="data" type="date" name="data" required></label>
-                <label>Horário
-                    <select name="horario" id="horario" required disabled>
-                        <option value="">Selecione uma data primeiro</option>
-                    </select>
-                </label>
-                <label>Observações (opcional)<textarea name="observacoes" maxlength="500"></textarea></label>
-                <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <section id="serviços" class="wrap">
+        <h2>Nossos Serviços</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Limpeza Dental</h3>
+                <p>Manter seus dentes limpos e saudáveis.</p>
+            </div>
+            <div class="card">
+                <h3>Clareamento</h3>
+                <p>Deixe seu sorriso mais brilhante.</p>
+            </div>
+            <div class="card">
+                <h3>Ortodontia</h3>
+                <p>Alinhe seus dentes com nossos especialistas.</p>
+            </div>
+        </div>
+    </section>
 
-                <button class="btn" type="submit">Agendar</button>
-                <p id="msg" role="status" aria-live="polite"></p>
-            </form>
-        </section>
-    </main>
+    <section id="sobre" class="wrap">
+        <h2>Sobre Nós</h2>
+        <p>Na Clinica Dentaria, oferecemos cuidados odontológicos de alta qualidade com uma equipe de profissionais experientes. Nosso objetivo é proporcionar um atendimento personalizado e eficaz para cada paciente.</p>
+        <p><b>Horário de Funcionamento:</b> Segunda a Sexta: 9h - 18h | Sábado: 9h - 12h</p>
+    </section>
 
-    <footer>© 2026 Clínica Dentária. Todos os direitos reservados.</footer>
+    <section id="agendar" class="wrap">
+        <h2>Agende sua Consulta</h2>
+        <form id="booking-form" novalidate>
+            <label>Nome completo<input name="nome" required maxlength="100"></label>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Telefone<input type="tel" name="telefone"></label>
+            <label>Procedimento
+                <select name="procedimento" required>
+                    <option value="">Selecione um procedimento</option>
+                    <option value="Limpeza">Limpeza Dental</option>
+                    <option value="Clareamento">Clareamento</option>
+                    <option value="Ortodontia">Ortodontia</option>
+                </select>
+            </label>
+            <label>Data da Consulta<input id="data" type="date" name="data" required></label>
+            <label>Horário
+                <select name="Horário" id="horário" required>
+                    <option value="">Selecione um horário</option>
+                </select>
+            </label>
+            <label>Observações(opcional)<textarea name="observacoes" maxlength="500"></textarea></label>
+            <!---honeypot for bots-->
+            <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <button class="btn" type="submit">Agendar</button>
+            <p id="msg" role="status"></p>
+        </form>
+    </section>
+
+    <footer> (c) 2023 Clinica Dentaria. Todos os direitos reservados.</footer>
     <script src="app.js"></script>
 </body>
 </html>
