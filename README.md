@@ -17,6 +17,8 @@ node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
 
 Do not commit `.env`. The admin schedule and its API require the Express server; opening the HTML through a static file server does not provide authentication or booking data.
 
+For GitHub Pages, publish the repository root. Asset links are relative so the CSS and JavaScript also resolve when the site is hosted under the repository-name path. GitHub Pages is static hosting, so booking submission and the authenticated admin schedule still require the Express server.
+
 ## Project layout
 
 - `server.js` contains the booking and admin API routes, input validation, and session checks.
